@@ -1,4 +1,5 @@
-﻿using Ocelot.DependencyInjection;
+﻿using Microsoft.AspNetCore.SpaServices.AngularCli;
+using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 
 namespace Gateway.WebApi
@@ -8,6 +9,11 @@ namespace Gateway.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddOcelot();
+            services.AddCors();
+            services.AddSpaStaticFiles(configuration =>
+            {
+                configuration.RootPath = "ClientApp/dist";
+            });
         }
 
         public async void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -16,11 +22,24 @@ namespace Gateway.WebApi
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseHttpsRedirection();
+
+            app.UseStaticFiles();
+
             app.UseRouting();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
+
+            app.UseSpa(spa =>
+            {
+                spa.Options.SourcePath = "ClientApp";
+                spa.UseAngularCliServer(npmScript: "start");
+            });
+
             await app.UseOcelot();
         }
     }
