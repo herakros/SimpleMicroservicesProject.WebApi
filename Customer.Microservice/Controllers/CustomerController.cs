@@ -25,7 +25,7 @@ namespace CustomerMicroservice.Microservice.Controllers
 
         [HttpGet]
         [Route("customers")]
-        public async Task<IActionResult> GetAllBooks()
+        public async Task<IActionResult> GetAllCustomers()
         {
             var result = await _customerService.GetAllCustomersAsync();
             return Ok(result);
@@ -33,7 +33,7 @@ namespace CustomerMicroservice.Microservice.Controllers
 
         [HttpGet]
         [Route("customers/{id}")]
-        public async Task<IActionResult> GetBookById(int id)
+        public async Task<IActionResult> GetCustomerById(int id)
         {
             var result = await _customerService.GetCustomerByIdAsync(id);
             return Ok(result);
