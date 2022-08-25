@@ -5,11 +5,11 @@ VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gateway.WebApi", "Gateway.WebApi\Gateway.WebApi.csproj", "{84570DD4-0542-4D1A-8477-2302A8EF21AC}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Micrpservoces", "Micrpservoces", "{498008C0-8DA3-44F4-96CB-75489B840DF2}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microservices", "Microservices", "{498008C0-8DA3-44F4-96CB-75489B840DF2}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Customer", "Customer", "{ACF3DD12-B562-4981-9DDA-DAFA74A70465}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CustomerMicroservice", "CustomerMicroservice", "{ACF3DD12-B562-4981-9DDA-DAFA74A70465}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Product", "Product", "{3756ABF3-3337-45A6-9174-8314AA2A59D0}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProductMicriservice", "ProductMicriservice", "{3756ABF3-3337-45A6-9174-8314AA2A59D0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application Core", "Application Core", "{A82BEDE3-DFD9-4D11-8046-99128318BD3F}"
 EndProject
