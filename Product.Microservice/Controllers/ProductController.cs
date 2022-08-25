@@ -25,21 +25,21 @@ namespace ProductMicroservice.Controllers
         }
 
         [HttpGet]
-        [Route("customers")]
+        [Route("products")]
         public async Task<IActionResult> GetAllProducts()
         {
             return Ok(await _productRepository.GetAllAsync());
         }
 
         [HttpGet]
-        [Route("customers/{id}")]
+        [Route("products/{id}")]
         public async Task<IActionResult> GetProductById(int id)
         {
             return Ok(await _productRepository.GetByKeyAsync(id));
         }
 
         [HttpDelete]
-        [Route("customers/{id}")]
+        [Route("products/{id}")]
         public async Task<IActionResult> DeleteCustomer(int id)
         {
             var product = await _productRepository.GetByKeyAsync(id);
@@ -54,7 +54,7 @@ namespace ProductMicroservice.Controllers
         }
 
         [HttpPut]
-        [Route("customers/{id}")]
+        [Route("products/{id}")]
         public async Task<IActionResult> UpdateCustomer([FromBody] UpdateProductDTO model, int id)
         {
             var product = await _productRepository.GetByKeyAsync(id);
