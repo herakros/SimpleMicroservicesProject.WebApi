@@ -1,25 +1,23 @@
-using Ocelot.DependencyInjection;
-using Ocelot.Middleware;
-
-var builder = WebApplication.CreateBuilder(args);
-builder.Configuration.AddJsonFile("ocelot.json");
-builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddOcelot();
-
-var app = builder.Build();
-
-if (app.Environment.IsDevelopment())
+namespace Gateway.WebApi
 {
-    app.UseDeveloperExceptionPage();
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            CreateHostBuilder(args).Build().Run();
+        }
+
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStartup<Startup>();
+                })
+            .ConfigureAppConfiguration((hostingContext, config) =>
+            {
+                config
+                .SetBasePath(hostingContext.HostingEnvironment.ContentRootPath)
+                .AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
+            });
+    }
 }
-
-app.UseRouting();
-
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapControllers();
-});
-await app.UseOcelot();
-
-app.Run();

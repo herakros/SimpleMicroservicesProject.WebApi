@@ -16,7 +16,6 @@ namespace CustomerMicroservice.Microservice.Controllers
         }
 
         [HttpPost]
-        [Route("customers")]
         public async Task<IActionResult> CreateCustomer(Contracts.Data.Entities.Customer customer)
         {
             await _customerService.CreateCustomerAsync(customer);
@@ -24,31 +23,27 @@ namespace CustomerMicroservice.Microservice.Controllers
         }
 
         [HttpGet]
-        [Route("customers")]
         public async Task<IActionResult> GetAllCustomers()
         {
             var result = await _customerService.GetAllCustomersAsync();
             return Ok(result);
         }
 
-        [HttpGet]
-        [Route("customers/{id}")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetCustomerById(int id)
         {
             var result = await _customerService.GetCustomerByIdAsync(id);
             return Ok(result);
         }
 
-        [HttpDelete]
-        [Route("customers/{id}")]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCustomer(int id)
         {
             await _customerService.DeleteCustomerAsync(id);
             return Ok();
         }
 
-        [HttpPut]
-        [Route("customers/{id}")]
+        [HttpPut("{id}")]
         public async Task<IActionResult> UpdateCustomer([FromBody] UpdateCustomerDTO customer, int id)
         {
             await _customerService.UpdateCustomerAsync(customer, id);
