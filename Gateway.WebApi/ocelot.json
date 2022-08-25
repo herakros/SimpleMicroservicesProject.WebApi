@@ -10,7 +10,7 @@
 				}
 			],
 			"UpstreamPathTemplate": "/gateway/product",
-			"UpstreamHttpMethod": [ "POST", "PUT", "GET" ]
+			"UpstreamHttpMethod": [ "POST", "GET" ]
 		},
 		{
 			"DownstreamPathTemplate": "/api/product/{id}",
@@ -22,7 +22,7 @@
 				}
 			],
 			"UpstreamPathTemplate": "/gateway/product/{id}",
-			"UpstreamHttpMethod": [ "GET", "DELETE" ]
+			"UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
 		},
 		{
 			"DownstreamPathTemplate": "/api/customer",
@@ -34,7 +34,7 @@
 				}
 			],
 			"UpstreamPathTemplate": "/gateway/customer",
-			"UpstreamHttpMethod": [ "POST", "PUT", "GET" ]
+			"UpstreamHttpMethod": [ "POST", "GET" ]
 		},
 		{
 			"DownstreamPathTemplate": "/api/customer/{id}",
@@ -46,7 +46,7 @@
 				}
 			],
 			"UpstreamPathTemplate": "/gateway/customer/{id}",
-			"UpstreamHttpMethod": [ "GET", "DELETE" ]
+			"UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
 		}
 	]
 }
